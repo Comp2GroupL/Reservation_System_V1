@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\ElectricVehicle.cpp" />
+    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\GasVehicle.cpp" />
+    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\Vehicle.cpp" />
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\ElectricVehicle.h" />
+    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\GasVehicle.h" />
+    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
