@@ -18,24 +18,24 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\ElectricVehicle.cpp">
+    <ClCompile Include="ElectricVehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\GasVehicle.cpp">
+    <ClCompile Include="GasVehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Com2_Lab5\Used_Car_Database\Vehicle.cpp">
+    <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\ElectricVehicle.h">
+    <ClInclude Include="ElectricVehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\GasVehicle.h">
+    <ClInclude Include="GasVehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Com2_Lab5\Used_Car_Database\Vehicle.h">
+    <ClInclude Include="Vehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
