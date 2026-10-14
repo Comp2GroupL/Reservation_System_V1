@@ -1,0 +1,146 @@
+Project 1 – Reservation System
+
+File Needed
+
+Headers (.h):
+
+Vehicle.h
+GasVehicle.h
+ElectricVehicle.h
+Database.h
+
+Source Files (.cpp):
+
+Vehicle.cpp
+GasVehicle.cpp
+ElectricVehicle.cpp
+Database.cpp
+ReservationSystem.cpp
+
+Additional Files:
+
+Inventory.txt
+
+
+Example OF Final Output: 
+
+
+========== CAR RESERVATION SYSTEM ==========
+
+Current Date: Day 1
+
+1. Search Vehicles
+2. Reserve a Vehicle
+3. Display All Vehicles
+4. Display Vehicles with Reservations
+5. Display Fully Available Vehicles
+6. Advance Current Date
+7. Exit
+
+Enter Command (1-7) >
+
+
+1. Search Vehicles
+ 
+========== SEARCH VEHICLES ==========
+
+Current Date: Day 1
+
+1. Search by Make
+2. Search by Model
+3. Search by Year
+4. Search by Color
+5. Search by Propulsion Type
+6. Return to Main Menu
+
+Enter Search Option (1-6) >
+
+2. Reserve a Vehicle
+
+========== RESERVE A VEHICLE ==========
+
+Current Date: Day 1
+
+ID   Year   Make      Model      Color    Type
+------------------------------------------------
+1    2026   Toyota    RAV4       Black    ICE
+2    2024   Honda     Civic      Blue     ICE
+3    2025   Tesla     Model3     White    EV
+4    2023   Ford      Mustang    Red      ICE
+5    2025   Hyundai   Ioniq5     Silver   EV
+6    2022   Toyota    Corolla    White    ICE
+
+0. Cancel and Return to Main Menu
+
+Enter Vehicle ID (0-6) >
+
+3. Display All Vehicles
+
+========== ALL VEHICLES ==========
+
+Current Date: Day 1
+Total Vehicles: 6
+
+ID   Year   Make      Model      Color    Type   Range
+---------------------------------------------------------
+1    2026   Toyota    RAV4       Black    ICE    595 mi
+2    2024   Honda     Civic      Blue     ICE    409 mi
+3    2025   Tesla     Model3     White    EV     300 mi
+4    2023   Ford      Mustang    Red      ICE    384 mi
+5    2025   Hyundai   Ioniq5     Silver   EV     255 mi
+6    2022   Toyota    Corolla    White    ICE    462 mi
+
+Total: 6 vehicles found.
+
+4. Display Vehicles with Reservations
+
+========== VEHICLES WITH RESERVATIONS ==========
+
+Current Date: Day 1
+
+ID   Year   Make      Model      Color    Reserved Days
+-------------------------------------------------------
+
+No vehicles currently have future reservations.
+
+Total Reserved Vehicles: 0
+
+5. Display Fully Available Vehicles
+
+========== FULLY AVAILABLE VEHICLES ==========
+
+Current Date: Day 2
+
+ID   Year   Make      Model      Color    Type
+------------------------------------------------
+1    2026   Toyota    RAV4       Black    ICE
+2    2024   Honda     Civic      Blue     ICE
+3    2025   Tesla     Model3     White    EV
+4    2023   Ford      Mustang    Red      ICE
+5    2025   Hyundai   Ioniq5     Silver   EV
+6    2022   Toyota    Corolla    White    ICE
+
+Total Available Vehicles: 6
+
+All vehicles are currently available with
+no future reservations.
+
+
+6. Advance Current Date
+
+========== ADVANCE CURRENT DATE ==========
+
+Previous Date: Day 1
+Current Date:  Day 2
+
+Date successfully advanced by 1 day.
+
+Expired Reservations: 0
+Active Reservations:  0
+
+All 6 vehicles are fully available.
+
+
+
+
+
