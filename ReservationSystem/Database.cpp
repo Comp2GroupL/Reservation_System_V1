@@ -2,6 +2,7 @@
 //Currently making edits to match new 
 //Changed from ...Car to ...Vehicle
 //From 20 Vehicles to 50
+// enginetype --> PropulsionType
 ///////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <fstream>
@@ -46,7 +47,7 @@ int main(int argc, char* argv[])
         std::string Field;
 
         //Variables to store each field from the line
-        std::string Make, Model, Year, EngineType, Capacity, Efficiency;
+        std::string Make, Model, Year, PropulsionType, Capacity, Efficiency, Color;
 
         //Counts how many fields have been read from the line
         int FieldCount = 0;
@@ -80,7 +81,7 @@ int main(int argc, char* argv[])
         } // if()
 
         //Checks the propulsion type and creates the correct vehicle object
-        if (EngineType == "ICE")
+        if (PropulsionType == "ICE")
         {
             //Creates a gas-powered car using the parsed values
             GasVehicle* GC = new GasVehicle(Make, Model, std::stoi(Year),
@@ -89,7 +90,7 @@ int main(int argc, char* argv[])
             //Stores the gas car in the database
             Database[NumVehicles] = GC;
         } // if()
-        else if (EngineType == "EV")
+        else if (PropulsionType == "EV")
         {
             //Creates an electric car using the parsed values
             ElectricVehicle* EC = new ElectricVehicle(Make, Model, std::stoi(Year),
