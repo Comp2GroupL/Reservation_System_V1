@@ -21,6 +21,7 @@ Additional Files:
 
 Inventory.txt
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Example OF Final Output: 
 
@@ -140,6 +141,19 @@ Active Reservations:  0
 
 All 6 vehicles are fully available.
 
+
+How to do scripting
+---------------------------
+clean project in visual studio
+build project in visual studio
+look at the path in the output section of visual studios and look for the file directory of you project should be the last line before the Build lines
+Open up command prompt
+make sure your in the right drive if not use (letter of your drive):
+cd (letter of your drive): copy and past your directory except for .xe at the end
+type the name of your lab to run it but add < script.txt > (name of your lab).out
+
+
+lab5 < script.txt > lab5.out
 
 
 

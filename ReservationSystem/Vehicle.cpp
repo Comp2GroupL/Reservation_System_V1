@@ -10,6 +10,8 @@ Vehicle::Vehicle()
 {
     Make = "";
     Model = "";
+    Color = "";
+    PropulsionType = "";
     Year = 0;
 }
 
@@ -32,6 +34,16 @@ void Vehicle::SetYear(int TheYear)
     Year = TheYear;
 }
 
+void Vehicle::SetColor(string TheColor)
+{
+    Color = TheColor;
+}
+
+void  Vehicle::SetPropulsionType(string ThePropulsionType)
+{
+    PropulsionType = ThePropulsionType;
+}
+
 string Vehicle::GetMake() const
 {
     return Make;
@@ -45,4 +57,14 @@ string Vehicle::GetModel() const
 int Vehicle::GetYear() const
 {
     return Year;
+}
+
+string Vehicle::GetColor() const
+{
+    return Color;
+}
+
+string Vehicle::GetPropulsionType() const
+{
+    return PropulsionType;
 }
