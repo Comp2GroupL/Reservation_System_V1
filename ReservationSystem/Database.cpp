@@ -1,12 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 //Currently making edits to match new 
+//Changed from ...Car to ...Vehicle
+//From 20 Vehicles to 50
 ///////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "GasCar.h"
-#include "ElectricCar.h"
+#include "GasVehicle.h"
+#include "ElectricVehicle.h"
 
 int main(int argc, char* argv[])
 {
@@ -17,7 +19,7 @@ int main(int argc, char* argv[])
     std::string Line;
 
     //Creates an array to store pointers to Vehicle objects
-#define DATABASE_SIZE (20)
+#define DATABASE_SIZE (50) //(10/22) max number of vehicles --> 50
     Vehicle* Database[DATABASE_SIZE];
 
     //Opens the inventory file for reading
@@ -55,12 +57,13 @@ int main(int argc, char* argv[])
             FieldCount++;
             switch (FieldCount)
             {
-            case 1: { Make = Field; break; }
-            case 2: { Model = Field; break; }
-            case 3: { Year = Field; break; }
-            case 4: { EngineType = Field; break; }
-            case 5: { Capacity = Field; break; }
-            case 6: { Efficiency = Field; break; }
+            case 1: { Year = Field; break; }
+            case 2: { Make = Field; break; }
+            case 3: { Model = Field; break; }
+            case 4: { PropulsionType = Field; break; }
+            case 5: { Color = Field; break; }
+            case 6: { Capacity = Field; break; }
+            case 7: { Efficiency = Field; break; }
             } // switch()
         } // while()
 
@@ -80,7 +83,7 @@ int main(int argc, char* argv[])
         if (EngineType == "ICE")
         {
             //Creates a gas-powered car using the parsed values
-            GasCar* GC = new GasCar(Make, Model, std::stoi(Year),
+            GasVehicle* GC = new GasVehicle(Make, Model, std::stoi(Year),
                 std::stof(Capacity), std::stof(Efficiency));
 
             //Stores the gas car in the database
@@ -89,7 +92,7 @@ int main(int argc, char* argv[])
         else if (EngineType == "EV")
         {
             //Creates an electric car using the parsed values
-            ElectricCar* EC = new ElectricCar(Make, Model, std::stoi(Year),
+            ElectricVehicle* EC = new ElectricVehicle(Make, Model, std::stoi(Year),
                 std::stof(Capacity), std::stof(Efficiency));
 
             //Stores the electric car in the database
