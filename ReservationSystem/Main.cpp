@@ -104,86 +104,59 @@ int main(int argc, char* argv[])
 
     bool ExitRequested = false;
     do {
+        int date = 1;
         char Command;
-        // Prompt the user for the program option (search by Make, Model, Year, or
-        //   or exit the program)
-        std::cout << "Enter Command (? for help) > ";
+        // Prompt the user for the program option
+        std::cout << "============== CAR RESERVATION SYSTEM ==============" << std::endl << std::endl;
+        std::cout << "Current Date: Day " << date << std::endl << std::endl;
+        std::cout << "1. Search Vehicles";
+        std::cout << "2. Reserve a Vehicle" << std::endl;
+        std::cout << "3. Display All Vehicles" << std::endl;
+        std::cout << "4. Display Vehicles With Reservations" << std::endl;
+        std::cout << "5. Display Fully Available Vehicles" << std::endl;
+        std::cout << "6. Advance Current Date" << std::endl;
+        std::cout << "7. Exit the Program" << std::endl << std::endl;
+        std::cout << "Enter Command (1-7): ";
         std::cin >> Command;
 
         // Process the command
         switch (Command)
         {
-        case '?': // Help screen
+        case '1': // Search Vehicles
         {
-            std::cout << " ? = Display Help" << std::endl;
-            std::cout << " A = Search by Make" << std::endl;
-            std::cout << " O = Search by Model" << std::endl;
-            std::cout << " Y = Search by Year" << std::endl;
-            std::cout << " Q = Quit / Exit the program" << std::endl;
+            
             break;
-        } // Case '?'
-        case 'a': case 'A': // Search by Make
+        } // case '1'
+        case '2': // Reserve a Vehicle
         {
-            // Prompt the user for the search criteria
-            std::string DesiredMake;
-            std::cout << "Enter Make > ";
-            std::cin >> DesiredMake;
-
-            // Search the database
-            // Print out matching entries
-            for (int i = 0; i < NumVehicles; ++i) {
-                if (Database[i]->GetMake() == DesiredMake) {
-                    cout << Database[i]->GetMake() << " "
-                        << Database[i]->GetModel() << " "
-                        << Database[i]->GetYear() << " "
-                        << Database[i]->GetPropulsionInfo() << endl;
-                }
-            }
+            
             break;
-        } // case 'a' or 'A'
-        case 'o': case 'O': // Search by Model
+        } // case '2'
+        case '3': // Display All Vehicles
         {
-            // Prompt the user for the search criteria
-            std::string DesiredModel;
-            std::cout << "Enter Model > ";
-            std::cin >> DesiredModel;
-
-            // Search the database
-            // Print out matching entries
-            for (int i = 0; i < NumVehicles; ++i) {
-                if (Database[i]->GetModel() == DesiredModel) {
-                    cout << Database[i]->GetMake() << " "
-                        << Database[i]->GetModel() << " "
-                        << Database[i]->GetYear() << " "
-                        << Database[i]->GetPropulsionInfo() << endl;
-                }
-            }
+            
             break;
-        } // case 'o' or 'O'
-        case 'y': case 'Y': // Search by Year
+        } // case '3'
+        case '4': // Display Vehicles with Reservations
         {
-            // Prompt the user for the search criteria
-            int DesiredYear;
-            std::cout << "Enter Year > ";
-            std::cin >> DesiredYear;
-
-            // Search the database
-            // Print out matching entries
-            for (int i = 0; i < NumVehicles; ++i) {
-                if (Database[i]->GetYear() == DesiredYear) {
-                    cout << Database[i]->GetMake() << " "
-                        << Database[i]->GetModel() << " "
-                        << Database[i]->GetYear() << " "
-                        << Database[i]->GetPropulsionInfo() << endl;
-                }
-            }
+            
             break;
-        } // case 'y' or 'Y'
-        case 'q': case 'Q': // Exit the program
+        } // case '4'
+        case '5': // Display Fully Available Vehicles
+        {
+            
+            break;
+        } // case '5'
+        case '6': // Advance Current Date
+        {
+            date++;
+            break;
+        } // case '6'
+        case '7': // Exit the Program
         {
             ExitRequested = true;
             break;
-        } // case 'q' or 'Q'
+        } // case '7'
        // "otherwise" is not needed, any other command is ignored
         } // switch()
 
