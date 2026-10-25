@@ -22,34 +22,34 @@ void DisplaySearchMenu(Database& db) {
 
     cin >> SearchChoice;
 
-    string Term;
+    string make, model, year, color, propulsionType;
 
     switch (SearchChoice)
     {
     case '1':
         cout << "Enter Make: ";
-        getline(cin, Term);
-        cout << db.SearchByMake(Term) << endl;
+        cin >> make;
+        cout << db.SearchByMake(make) << endl;
         break;
     case '2':
         cout << "Enter Model: ";
-        getline(cin, Term);
-        cout << db.SearchByModel(Term) << endl;
+        cin >> model;
+        cout << db.SearchByModel(model) << endl;
         break;
     case '3':
         cout << "Enter Year: ";
-        getline(cin, Term);
-        cout << db.SearchByYear(Term) << endl;
+        cin >> year;
+        cout << db.SearchByYear(year) << endl;
         break;
     case '4':
         cout << "Enter Color: ";
-        getline(cin, Term);
-        cout << db.SearchByColor(Term) << endl;
+        cin >> color;
+        cout << db.SearchByColor(color) << endl;
         break;
     case '5':
         cout << "Enter Propulsion Type: ";
-        getline(cin, Term);
-        cout << db.SearchByPropulsionType(Term) << endl;
+        cin >> propulsionType;
+        cout << db.SearchByPropulsionType(propulsionType) << endl;
         break;
     }
 }
@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
         // Prompt the user for the program option
         std::cout << "\n============== CAR RESERVATION SYSTEM ==============" << std::endl << std::endl;
         std::cout << "Current Date: Day " << db.GetCurrentDate() << std::endl << std::endl;
-        std::cout << "1. Search Vehicles";
+        std::cout << "1. Search Vehicles" << std::endl;
         std::cout << "2. Reserve a Vehicle" << std::endl;
         std::cout << "3. Display All Vehicles" << std::endl;
         std::cout << "4. Display Vehicles With Reservations" << std::endl;
