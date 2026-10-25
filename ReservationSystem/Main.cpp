@@ -1,10 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-// This program implements a rudimentary used car database.  It reads a text
-// file that contains the list of cars in the database.  Each line of the file
-// represents a single vehicle where there are six fields: Make, Model, Year,
-// Engine Type (ICE or EV), Fuel/Energy Capacity, and mileage efficiency.
-// The user is allowed to querry the database to see the list of vehicles that
-// match their search criteria.
+// Explanation goes here
 ///////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <fstream>
@@ -12,103 +7,69 @@
 #include <sstream>
 #include "GasVehicle.h"
 #include "ElectricVehicle.h"
+#include "Database.h"
+
+void DisplaySearchMenu(Database& db) {
+    char SearchChoice;
+
+    cout << "\n============== SEARCH VEHICLES ==============" << endl;
+    cout << "1. Search by Make" << endl;
+    cout << "2. Search by Model" << endl;
+    cout << "3. Search by Year" << endl;
+    cout << "4. Search by Color" << endl;
+    cout << "5. Search by Propulsion Type (ICE/EV)" << endl;
+    cout << "Enter Choice (1-5): ";
+
+    cin >> SearchChoice;
+
+    string Term;
+
+    switch (SearchChoice)
+    {
+    case '1':
+        cout << "Enter Make: ";
+        getline(cin, Term);
+        cout << db.SearchByMake(Term) << endl;
+        break;
+    case '2':
+        cout << "Enter Model: ";
+        getline(cin, Term);
+        cout << db.SearchByModel(Term) << endl;
+        break;
+    case '3':
+        cout << "Enter Year: ";
+        getline(cin, Term);
+        cout << db.SearchByYear(Term) << endl;
+        break;
+    case '4':
+        cout << "Enter Color: ";
+        getline(cin, Term);
+        cout << db.SearchByColor(Term) << endl;
+        break;
+    case '5':
+        cout << "Enter Propulsion Type: ";
+        getline(cin, Term);
+        cout << db.SearchByPropulsionType(Term) << endl;
+        break;
+    }
+}
 
 int main(int argc, char* argv[])
 {
-    // The inventory file
-    std::ifstream InFile;
-    // The string for each line of the inventory file
-    std::string Line;
-    // The used car database as pointers to objects
-#define DATABASE_SIZE (20)
-    Vehicle* Database[DATABASE_SIZE];
+    Database db;
 
-    // Open the output file
-    InFile.open("Inventory.txt");
-    if (!InFile.is_open())
+    if (db.ReadInventory("Inventory.txt") != 0)
     {
-        std::cout << "Error! Inventory file could not be opened." << std::endl;
+        cout << "Failed to initialize database inventory. Exiting program." << endl;
         return -1;
-    } // if()
-
-  // Read the contents of the file one line at a time
-    int NumVehicles = 0;
-    while (getline(InFile, Line))
-    {
-        // String stream for parsing words from the line
-        std::istringstream Record(Line);
-        // String to hold the parsed field
-        std::string Field;
-        // Strings to hold the individual fields
-        std::string Make, Model, Year, EngineType, Capacity, Efficiency;
-
-        // Get the strings from the line
-        int FieldCount = 0;
-        while (Record >> Field)
-        {
-            FieldCount++;
-            switch (FieldCount)
-            {
-            case 1: { Make = Field; break; }
-            case 2: { Model = Field; break; }
-            case 3: { Year = Field; break; }
-            case 4: { EngineType = Field; break; }
-            case 5: { Capacity = Field; break; }
-            case 6: { Efficiency = Field; break; }
-            } // switch()
-        } // while()
-        if (FieldCount != 6)
-        {
-            std::cout << "Error! Inventory file is malformed." << std::endl;
-            std::cout << Line << std::endl;
-            return -2;
-        } // if()
-
-      // Depending on the propulsion type, instantiate a GasCar or ElectricCar,
-      //   populate the fields, and put it into the database array
-        if (EngineType == "ICE")
-        {
-            // Instantiate a gas propulsion car object
-            GasVehicle* gas_ptr = new GasVehicle();
-            // Set the fields
-            gas_ptr->SetMake(Make);
-            gas_ptr->SetModel(Model);
-            gas_ptr->SetYear(stoi(Year));
-            gas_ptr->SetFuelCapacity(stof(Capacity));
-            gas_ptr->SetEfficiency(stof(Efficiency));
-            // Insert the gas car into the database
-            Database[NumVehicles] = gas_ptr;
-        } // if()
-        else if (EngineType == "EV")
-        {
-            // Instantiate an electric Propulsion car object
-            ElectricVehicle* electric_ptr = new ElectricVehicle();
-            // Set the fields
-            electric_ptr->SetMake(Make);
-            electric_ptr->SetModel(Model);
-            electric_ptr->SetYear(stoi(Year));
-            electric_ptr->SetEnergyCapacity(stof(Capacity));
-            electric_ptr->SetEfficiency(stof(Efficiency));
-            // Insert the Electric car into the database
-            Database[NumVehicles] = electric_ptr;
-        } // if...if...else()
-        else
-        {
-            std::cout << "Error! Unrecognized propulsion type." << std::endl;
-            return -3;
-        } // if...else()
-
-       // Increment the running counter of the cars in the inventory
-        NumVehicles++;
-    } // while()
+    }
 
     bool ExitRequested = false;
     do {
-        int date = 1;
         char Command;
         // Prompt the user for the program option
-        std::cout << "============== CAR RESERVATION SYSTEM ==============" << std::endl << std::endl;
-        std::cout << "Current Date: Day " << date << std::endl << std::endl;
+        std::cout << "\n============== CAR RESERVATION SYSTEM ==============" << std::endl << std::endl;
+        std::cout << "Current Date: Day " << db.GetCurrentDate() << std::endl << std::endl;
         std::cout << "1. Search Vehicles";
         std::cout << "2. Reserve a Vehicle" << std::endl;
         std::cout << "3. Display All Vehicles" << std::endl;
@@ -124,32 +85,58 @@ int main(int argc, char* argv[])
         {
         case '1': // Search Vehicles
         {
-            
+            DisplaySearchMenu(db);
             break;
         } // case '1'
         case '2': // Reserve a Vehicle
         {
-            
+            int VehicleID = 0;
+            int ReserveDay = 0;
+
+            cout << "\nEnter Vehicle ID: ";
+            if (!(cin >> VehicleID))
+            {
+                cout << "Invalid vehicle ID entered." << endl;
+                break;
+            }
+
+            cout << "Enter Reservation Day: ";
+            if (!(cin >> ReserveDay))
+            {
+                cout << "Invalid day entered." << endl;
+                break;
+            }
+            break;
+
+            if (db.ReserveVehicle(VehicleID, ReserveDay))
+            {
+                cout << "Success: Vehicle #" << VehicleID << " reserved for Day " << ReserveDay << "." << endl;
+            }
+            else
+            {
+                cout << "ERROR: Reservation failed. The vehicle may already be reserved on that date, exceeding max 3 future reservations, or invalid day provided." << endl;
+            }
             break;
         } // case '2'
         case '3': // Display All Vehicles
         {
-            
+            cout << db.PrintAllVehicles() << endl;
             break;
         } // case '3'
         case '4': // Display Vehicles with Reservations
         {
-            
+            cout << db.PrintReservedVehicles() << endl;
             break;
         } // case '4'
         case '5': // Display Fully Available Vehicles
         {
-            
+            cout << db.PrintAvailableVehicles() << endl;
             break;
         } // case '5'
         case '6': // Advance Current Date
         {
-            date++;
+            db.AdvanceDate();
+            cout << "Date advanced. Current Date is now: Day " << db.GetCurrentDate() << endl;
             break;
         } // case '6'
         case '7': // Exit the Program
