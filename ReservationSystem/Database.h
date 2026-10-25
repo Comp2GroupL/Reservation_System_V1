@@ -1,7 +1,6 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include <vector>
 #include <string>
 #include "Vehicle.h"
 
@@ -9,55 +8,55 @@ using namespace std;
 
 class Database
 {
-private: 
-
-    // Maximum number of vehicles and reservations
+private:
     static const int MaxVehicles = 50;
     static const int MaxReservations = 3;
 
-    // Array of pointers to vehicle objects
+    // Columns:
+    // 0 = Make
+    // 1 = Model
+    // 2 = Year
+    // 3 = Color
+    // 4 = Propulsion type
+    // 5 = Range
+    // 6 = Efficiency
+    string VehicleInfo[MaxVehicles][7];
+
+    // Vehicle objects used for the propulsion information.
     Vehicle* Vehicles[MaxVehicles];
 
-    // Stores up to 3 reservation dates for each vehicle
-    int Reservations[MaxVehicles][MaxReservations];
+    // Column 0 = Vehicle number
+    // Column 1 = Reservation day
+    int ReservedVehicles[MaxVehicles * MaxReservations][2];
 
-    // Number of vehicles currently in the database
     int NumVehicles;
-
-    // Current day of the reservation system
+    int NumReservations;
     int CurrentDate;
 
-public:
+    string GetVehicleInfo(int VehicleNumber);
 
-    // Constructor and destructor
+public:
     Database();
     ~Database();
 
-    // Vehicle inventory functions
-    bool AddVehicle(Vehicle* TheVehicle);
-    int GetNumVehicles() const;
-    Vehicle* GetVehicle(int VehicleIndex) const;
+    int ReadInventory(string FileName);
+    int GetNumVehicles();
 
-    // Vehicle search functions
-    void SearchByMake(string TheMake) const;
-    void SearchByModel(string TheModel) const;
-    void SearchByYear(int TheYear) const;
-    void SearchByColor(string TheColor) const;
-    void SearchByPropulsionType(string ThePropulsionType) const;
+    string SearchByMake(string TheMake);
+    string SearchByModel(string TheModel);
+    string SearchByYear(string TheYear);
+    string SearchByColor(string TheColor);
+    string SearchByPropulsionType(string ThePropulsionType);
 
-    // Vehicle reservation functions
-    bool ReserveVehicle(int VehicleIndex, int ReservationDate);
-    bool IsVehicleAvailable(int VehicleIndex, int ReservationDate) const;
+    bool ReserveVehicle(int VehicleNumber, int ReservationDate);
+    bool IsVehicleAvailable(int VehicleNumber, int ReservationDate);
 
-    // Display vehicle information
-    void PrintAllVehicles() const;
-    void PrintReservedVehicles() const;
-    void PrintAvailableVehicles() const;
+    string PrintAllVehicles();
+    string PrintReservedVehicles();
+    string PrintAvailableVehicles();
 
-    // Date management functions
     void AdvanceDate();
-    int GetCurrentDate() const;
-
+    int GetCurrentDate();
 };
 
 #endif
