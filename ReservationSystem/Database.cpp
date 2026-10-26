@@ -206,7 +206,7 @@ string Database::SearchByMake(string TheMake)
 
     Information << "\n========== SEARCH BY MAKE ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\t\tEfficiency" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
     Information << "----------------------------------------------------------------------------" << endl;
 
     // Make is stored in column 0.
@@ -235,8 +235,8 @@ string Database::SearchByModel(string TheModel)
 
     Information << "\n========== SEARCH BY MODEL ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     // Model is stored in column 1.
     for (int i = 0; i < NumVehicles; i++)
@@ -264,8 +264,8 @@ string Database::SearchByYear(string TheYear)
 
     Information << "\n========== SEARCH BY YEAR ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     // Year is stored in column 2.
     for (int i = 0; i < NumVehicles; i++)
@@ -293,8 +293,8 @@ string Database::SearchByColor(string TheColor)
 
     Information << "\n========== SEARCH BY COLOR ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     // Color is stored in column 3.
     for (int i = 0; i < NumVehicles; i++)
@@ -322,8 +322,8 @@ string Database::SearchByPropulsionType(string ThePropulsionType)
 
     Information << "\n========== SEARCH BY PROPULSION TYPE ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     // Propulsion type is stored in column 4.
     for (int i = 0; i < NumVehicles; i++)
@@ -404,8 +404,8 @@ string Database::PrintAllVehicles()
     Information << "\n========== ALL VEHICLES ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << endl;
     Information << "Total Vehicles: " << NumVehicles << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < NumVehicles; i++)
     {
@@ -428,8 +428,8 @@ string Database::PrintReservedVehicles()
 
     Information << "\n========== VEHICLES WITH RESERVATIONS ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency\tReserved Days" << endl;
-    Information << "----------------------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\tEfficiency\t\tReserved Days" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < NumVehicles; i++)
     {
@@ -479,8 +479,8 @@ string Database::PrintAvailableVehicles()
 
     Information << "\n========== FULLY AVAILABLE VEHICLES ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\t  Range\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     for (int i = 0; i < NumVehicles; i++)
     {
