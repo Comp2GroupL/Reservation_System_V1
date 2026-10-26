@@ -1,4 +1,5 @@
 2022 Toyota Camry ICE Red 15.8 32.0
+2003 Toyota Camry ICE Red 15.8 32.0
 2023 Tesla Model3 EV White 75.0 4.1
 2021 Ford F150 ICE Blue 26.0 20.0
 2024 Hyundai Ioniq5 EV Black 77.4 3.8

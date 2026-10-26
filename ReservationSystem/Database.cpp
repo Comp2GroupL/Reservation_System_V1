@@ -20,14 +20,6 @@ Database::Database()
     CurrentDate = 1;
 }
 
-Database::~Database()
-{
-    for (int i = 0; i < NumVehicles; i++)
-    {
-        delete Vehicles[i];
-    }
-}
-
 int Database::ReadInventory(string FileName)
 {
     ifstream InFile;

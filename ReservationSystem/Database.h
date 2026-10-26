@@ -37,7 +37,6 @@ private:
 
 public:
     Database();
-    ~Database();
 
     int ReadInventory(string FileName);
     int GetNumVehicles();
