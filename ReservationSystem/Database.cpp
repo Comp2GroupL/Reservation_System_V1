@@ -397,7 +397,6 @@ bool Database::ReserveVehicle(int VehicleNumber, int ReservationDate)
     return true;
 }
 
-// All lines from here are 100% Ai Zayne use as refrence it similler to the code I coded above but no clue what it is I jsut told it in need it to print out this way and gave it the read me file
 string Database::PrintAllVehicles()
 {
     ostringstream Information;
