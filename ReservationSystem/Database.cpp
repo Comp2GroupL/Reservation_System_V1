@@ -206,8 +206,8 @@ string Database::SearchByMake(string TheMake)
 
     Information << "\n========== SEARCH BY MAKE ==========\n\n";
     Information << "Current Date: Day " << CurrentDate << "\n\n";
-    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\tEfficiency" << endl;
-    Information << "------------------------------------------------------------------------" << endl;
+    Information << "ID\tYear\tMake\tModel\tColor\tType\tRange\t\tEfficiency" << endl;
+    Information << "----------------------------------------------------------------------------" << endl;
 
     // Make is stored in column 0.
     for (int i = 0; i < NumVehicles; i++)

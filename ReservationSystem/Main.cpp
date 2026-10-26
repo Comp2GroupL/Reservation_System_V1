@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
             }
             else
             {
-                cout << "Error: Reservation failed." << endl;
+                cout << "Error: Reservation failed. Number of reservation days exceeded (more than 3 days)" << endl;
             }
             break;
         } // case '2'
